@@ -15,7 +15,8 @@ app.set('views',template_join);
 hbs.registerPartials(partials_join);
 app.use(express.static(static_join));
 
-//routing
+//Routing
+
 app.get("/", (req, res) => {
     res.render('index')
 });
@@ -35,5 +36,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Your listening at the port ${port}`);
+    console.log(`Listening at the port ${port}`);
 });
