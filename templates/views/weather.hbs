@@ -11,33 +11,108 @@
 
     <!--Main header-->
 
-    <div class="container-fluid main_header">
-        <div class="row">
-            <div class="col-md-10 col-12 mx-auto">
-               <div class="main_content">
-                   <form class="temp_form">
-                       <input type="text" id="cityName" placeholder="Enter Your City Name" autocomplete="off">
-                       <input type="submit" value="search" id="submitBtn">
-                   </form>
-               </div>
-               <div class="tempInfo">
-                   <div class="top_layer">
-                       <p id="day">Wednesday</p>
-                       <p id="today_data">25 Aug</p>
-                   </div>
-                   <div class="main_layer">
-                       <p id="city_name">Get Output Here</p>
-                       <div class="middle_layer data_hide">
-                           <p id="temp"><span id="temp_real">0</span> <sup class="supSign">o</sup>C</p>
-                           <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
-                       </div>
-                   </div>
-               </div>
+<body onload="DefaultScreen()">
+    <center>
+        <h1 id="Para1">14 Days Weather Forecast</h1>
+        <p id="inputContainer">City: <input type="text" id="cityInput"></p>
+        <button type="button" onclick="GetInfo()"id="submitbtn">Click Me</button>        
+        <h2 id="cityName">---London---</h2>
+
+       
+    </center>
+    
+    <div id = "weatherContainer">
+        <div id="iconsContainer">    
+            <div class = "icons">
+                <p class="weather" id="day1"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img1"></div>
+                <p class="minValues" id="day1Min">Loading...</p>
+                <p class="maxValues" id="day1Max">Loading...</p>
             </div>
+            <div class = "icons">
+                <p class="weather" id="day2"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img2"></div>
+                <p class="minValues" id="day2Min">Loading...</p>
+                <p class="maxValues" id="day2Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day3"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img3"></div>
+                <p class="minValues" id="day3Min">Loading...</p>
+                <p class="maxValues" id="day3Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day4"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img4"></div>
+                <p class="minValues" id="day4Min">Loading...</p>
+                <p class="maxValues" id="day4Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day5"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img5"></div>
+                <p class="minValues" id="day5Min">Loading...</p>
+                <p class="maxValues" id="day5Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day6"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img6"></div>
+                <p class="minValues" id="day6Min">Loading...</p>
+                <p class="maxValues" id="day6Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day7"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img7"></div>
+                <p class="minValues" id="day7Min">Loading...</p>
+                <p class="maxValues" id="day7Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day8"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img8"></div>
+                <p class="minValues" id="day8Min">Loading...</p>
+                <p class="maxValues" id="day8Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day9"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img9"></div>
+                <p class="minValues" id="day9Min">Loading...</p>
+                <p class="maxValues" id="day9Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day10"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img10"></div>
+                <p class="minValues" id="day10Min">Loading...</p>
+                <p class="maxValues" id="day10Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day11"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img11"></div>
+                <p class="minValues" id="day11Min">Loading...</p>
+                <p class="maxValues" id="day11Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day12"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img12"></div>
+                <p class="minValues" id="day12Min">Loading...</p>
+                <p class="maxValues" id="day12Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day13"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img13"></div>
+                <p class="minValues" id="day13Min">Loading...</p>
+                <p class="maxValues" id="day13Max">Loading...</p>
+            </div>
+            <div class = "icons">
+                <p class="weather" id="day14"></p>
+                <div class="image"><img src="dots.png" class="imgClass" id="img14"></div>
+                <p class="minValues" id="day14Min">Loading...</p>
+                <p class="maxValues" id="day14Max">Loading...</p>
+            </div>
+            
         </div>
     </div>
-    <!-- Footer -->
-    {{>footer}}
+
+
+    
 
     <!--Script-->
     <script src="js/main.js"></script>

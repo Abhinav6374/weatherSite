@@ -212,44 +212,92 @@ sup{
 
 /*Temp input fields code*/
 
-.temp_form{
-    width: 60%;
-    position: relative;
-    margin: 10rem auto 6rem;
+#cityInput, #cityName, #inputContainer,button{
+    margin: 3px;
+padding:5px;
+text-align:center;
+font-size:20px;
+font-weight:bold;
 }
 
-.temp_form input[type="text"]{
-    width: 100%;
-    padding: 2rem 5rem 2rem 2rem;
-    background-color: #1e272e;
-    color: #fff;
-    outline: none;
-    border: none;
-    font-size: 1.7rem;
-    border-radius: 3rem;
-}
-
-::placeholder{
-    color: #bfc1c8;
-}
-
-.temp_form input[type="submit"]{
+#weatherContainer{
     position: absolute;
-    top: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: none;
-    background-color: #009ad8;
-    padding: 0 3rem;
-    border-radius: 3rem;
-    color: #fff;
-    font-size: 1.6rem;
+    top: 70%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 1300px;
+    /* border: 5px solid rgba(97, 95, 95, 0.829);     */
+    border-radius: 10px;
 }
 
-.temp_form input[type="submit"]:hover{
-    color: #009ad8;
-    background-color:#fff;
+#iconsContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 240px;
+    width: 1200px;    
+    /* border: 5px solid rgb(31, 82, 82);     */
+    /* border-radius: 10px; */
 }
+
+.icons{
+    display: inline-bock;
+    float: left;
+    height: 200px;
+    width: 190px;
+    margin: 20px;
+    border: 5px solid rgb(48, 47, 47);
+    border-radius: 10px;
+}
+
+.image{
+    height: 140px;
+    width: 100%;
+}
+
+.imgClass{
+    height: 140px;
+    width: 100%;
+}
+
+.weather{
+    margin: 5px;
+   /*  background-color: rgb(106, 215, 255); */
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.minValues{
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+
+.maxValues{
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    margin: -5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+
+
+
 
 
 /* responsive code */

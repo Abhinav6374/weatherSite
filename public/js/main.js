@@ -1,45 +1,59 @@
-const cityName = document.getElementById('cityName');
-const submitBtn = document.getElementById('submitBtn');
-const city_name = document.getElementById('city_name');
-const temp_status = document.getElementById('temp_status');
-const temp_real = document.getElementById('temp_real');
-const datahide = document.querySelector('.middle_layer');
+function GetInfo() {
 
-const getInfo = async (event) => {
-    event.preventDefault();
-    let cityVal = cityName.value;
+    var newName = document.getElementById("cityInput");
+    var cityName = document.getElementById("cityName");
+    cityName.innerHTML = "--"+newName.value+"--";
 
-    if (cityVal === "") {
-        city_name.innerHTML = `Please Enter City Name Before Search`;
-        datahide.classList.add('data_hide');
-    } else {
-        try {
-            let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=1fc136f79162f2b02f901f0d68626a9d`
-            const response = await fetch(url);
-            const data = await response.json();
-            const arrData = [data];
-            city_name.innerHTML = `${arrData[0].name}, ${arrData[0].sys.country}`;
-            temp_real.innerHTML = arrData[0].main.temp;
-            const tempMood = arrData[0].weather[0].main;
+fetch('https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=32ba0bfed592484379e51106cef3f204')
+.then(response => response.json())
+.then(data => {
 
-            //condition to check sunny or cloudy
-            if (tempMood == "Clear") {
-                temp_status.innerHTML = "<i class='fa fa-sun' style='color: #eccc68;'></i>";
-            } else if (tempMood == "Clouds") {
-                temp_status.innerHTML = "<i class='fa fa-cloud' style='color: #f1f2f6;'></i>";
-            } else if (tempMood == "Rain") {
-                temp_status.innerHTML = "<i class='fa fa-rain' style='color: #a4b0be;'></i>";
-            } else {
-                temp_status.innerHTML = "<i class='fa fa-sun' style='color: #eccc68;'></i>";
-            }
-            datahide.classList.remove('data_hide');
-        }
-        catch {
-            city_name.innerHTML = `Please Enter City Name Properly`;
-            datahide.classList.add('data_hide');
-        }
+    //Getting the min and max values for each day
+    for(i = 0; i<14; i++){
+        document.getElementById("day" + (i+1) + "Min").innerHTML = "Min: " + Number(data.list[i].main.temp_min - 273.15).toFixed(1)+ "°";
+        //Number(1.3450001).toFixed(2); // 1.35
     }
 
+    for(i = 0; i<14; i++){
+        document.getElementById("day" + (i+1) + "Max").innerHTML = "Max: " + Number(data.list[i].main.temp_max - 273.15).toFixed(2) + "°";
+    }
+    //------------------------------------------------------------
+
+    //Getting Weather Icons
+     for(i = 0; i<14; i++){
+        document.getElementById("img" + (i+1)).src = "http://openweathermap.org/img/wn/"+
+        data.list[i].weather[0].icon
+        +".png";
+    }
+    //------------------------------------------------------------
+    console.log(data)
+
+
+})
+
+.catch(err => alert("Something Went Wrong: Try Checking Your Internet Coneciton"))
 }
 
-submitBtn.addEventListener('click', getInfo);
+function DefaultScreen(){
+    document.getElementById("cityInput").defaultValue = "London";
+    GetInfo();
+}
+
+
+//Getting and displaying the text for the upcoming 14 days of the week
+var d = new Date();
+var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
+
+//Function to get the correct integer for the index of the days array
+function CheckDay(day){
+    if(day + d.getDay() > 6){
+        return day + d.getDay() - 7;
+    }
+    else{
+        return day + d.getDay();
+    }
+}
+
+    for(i = 0; i<14; i++){
+        document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
+    }
